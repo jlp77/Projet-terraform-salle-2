@@ -1,11 +1,4 @@
 # Data source pour récupérer le VPC par tag (créé dans le root ou phase1)
-data "aws_vpc" "ecosop_vpc" {
-  filter {
-    name   = "tag:Name"
-    values = ["ecosop-vpc"]
-  }
-}
-
 # SG-Web (pour Load Balancer)
 resource "aws_security_group" "sg_web" {
   name        = "SG-Web"
