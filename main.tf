@@ -38,7 +38,7 @@ module "phase3" {
 }
 module "phase4" {
   source = "./phase4"
-  subnet_ids = module.phase1.db_private_subnet_ids
+  db_private_subnet_ids = module.phase1.db_private_subnet_ids
   sg_db_id = module.phase2.sg_db_id
 }
 module "phase5" {
