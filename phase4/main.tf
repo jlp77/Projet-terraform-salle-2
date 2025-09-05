@@ -28,4 +28,3 @@ resource "aws_db_instance" "ecoshop_rds" {
     Name = "ecoshop-rds"
   }
 }
-teet
