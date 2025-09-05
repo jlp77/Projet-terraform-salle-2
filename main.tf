@@ -17,6 +17,7 @@ module "phase1" {
 }
 module "phase2" {
   source = "./phase2"
+  vpc_id = module.phase1.vpc_id
 }
 module "phase3" {
   source = "./phase3"
