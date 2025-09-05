@@ -1,10 +1,3 @@
-# Configuration VPC
-variable "vpc_cidr" {
-  description = "Bloc CIDR pour le VPC"
-  type        = string
-  default     = "10.0.0.0/16"
-}
-
 # Subnets publics (Web)
 variable "web_public_subnet_cidr_1" {
   description = "Bloc CIDR pour le premier subnet public Web"
