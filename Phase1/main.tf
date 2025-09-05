@@ -1,17 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0" # Use a recent version
-    }
-  }
-}
-
-# Provider AWS
-provider "aws" {
-  region = var.region
-}
-
 # Création du VPC
 resource "aws_vpc" "ecosop-vpc" {
   cidr_block           = var.vpc_cidr
