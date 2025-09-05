@@ -33,9 +33,9 @@ module "phase3" {
   vpc_id = module.phase1.vpc_id
   app_private_subnet_ids = module.phase1.app_private_subnet_ids
 }
-# module "phase4" {
-#   source = "./phase4"
-# }
-# module "phase5" {
-#   source = "./phase5"
-# }
+module "phase4" {
+  source = "./phase4"
+}
+module "phase5" {
+  source = "./phase5"
+}
