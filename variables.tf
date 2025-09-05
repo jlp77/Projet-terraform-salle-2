@@ -12,14 +12,14 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "zone_public" {
-  description = "Zone publique"
+variable "zone_a" {
+  description = "Première zone de disponibilité"
   type        = string
   default     = "us-east-1a"
 }
 
-variable "zone_private" {
-  description = "Zone privée"
+variable "zone_b" {
+  description = "Deuxième zone de disponibilité"
   type        = string
   default     = "us-east-1b"
 }
