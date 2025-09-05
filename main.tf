@@ -36,13 +36,13 @@ module "phase3" {
   sg_bastion_id = module.phase2.sg_bastion_id
   sg_app_id = module.phase2.sg_app_id
 }
-# module "phase4" {
-#   source = "./phase4"
-# }
-# module "phase5" {
-#   source              = "./phase5"
-#   vpc_id              = module.phase1.vpc_id
-#  web_public_subnet_ids = module.phase1.web_public_subnet_ids
-#  app_instance_ids    = module.phase3.app_instance_ids
-#  sg_web_id           = module.phase2.sg_web_id
-#  }
+module "phase4" {
+  source = "./phase4"
+}
+module "phase5" {
+  source              = "./phase5"
+  vpc_id              = module.phase1.vpc_id
+ web_public_subnet_ids = module.phase1.web_public_subnet_ids
+ app_instance_ids    = module.phase3.app_instance_ids
+ sg_web_id           = module.phase2.sg_web_id
+ }

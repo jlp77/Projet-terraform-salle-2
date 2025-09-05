@@ -102,7 +102,7 @@ resource "aws_security_group" "sg_bastion" {
   description = "Security group for Bastion host"
   vpc_id      = var.vpc_id
 
-  # Ingress SSH (22) depuis votre IP publique uniquement
+  # Ingress SSH (22)
   ingress {
     from_port   = 22
     to_port     = 22
