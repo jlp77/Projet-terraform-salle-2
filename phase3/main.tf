@@ -1,8 +1,7 @@
-
 # Bastion Host
 resource "aws_security_group" "sg_bastion" {
 	name        = "SG-Bastion"
-	description = "Accès SSH pour Bastion Host"
+	description = "SSH access for Bastion Host" # Remplacer par du texte ASCII
 	vpc_id      = var.vpc_id
 
 	ingress {
@@ -34,7 +33,7 @@ resource "aws_instance" "bastion" {
 # Serveurs Web/App
 resource "aws_security_group" "sg_app" {
 	name        = "SG-App"
-	description = "Accès HTTP et SSH via Bastion"
+	description = "HTTP and SSH access via Bastion" # Remplacer par du texte ASCII
 	vpc_id      = var.vpc_id
 
 	ingress {
