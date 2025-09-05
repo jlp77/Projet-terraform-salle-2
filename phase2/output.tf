@@ -14,3 +14,13 @@ output "sg_db_id" {
 output "sg_bastion_id" {
   value = aws_security_group.sg_bastion.id
 }
+
+output "bastion_key_name" {
+  value = aws_key_pair.bastion_key.key_name
+}
+
+output "bastion_private_key_pem" {
+  value = tls_private_key.bastion_key.private_key_pem
+  sensitive = true
+}
+

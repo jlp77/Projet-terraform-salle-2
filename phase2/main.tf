@@ -122,3 +122,22 @@ resource "aws_security_group" "sg_bastion" {
     Name = "SG-Bastion"
   }
 }
+
+# Génération de la clé privée
+resource "tls_private_key" "bastion_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+# Création de la paire de clés dans AWS
+resource "aws_key_pair" "bastion_key" {
+  key_name   = "bastion-key"
+  public_key = tls_private_key.bastion_key.public_key_openssh
+}
+
+# Sauvegarde locale de la clé privée (optionnel)
+resource "local_file" "bastion_private_key" {
+  content         = tls_private_key.bastion_key.private_key_pem
+  filename        = "${path.module}/bastion-key.pem"
+  file_permission = "0600"
+}

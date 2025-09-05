@@ -42,3 +42,13 @@ variable "app_private_subnet_ids" {
 	description = "Liste des IDs des subnets privés pour les serveurs Web/App"
 	type        = list(string)
 }
+
+variable "sg_bastion_id" {
+	description = "ID du Security Group Bastion (depuis phase2)"
+	type        = string
+}
+
+variable "sg_app_id" {
+	description = "ID du Security Group App (depuis phase2)"
+	type        = string
+}

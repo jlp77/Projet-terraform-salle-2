@@ -1,68 +1,43 @@
 # Bastion Host
-resource "aws_security_group" "sg_bastion" {
-	name        = "SG-Bastion"
-	description = "SSH access for Bastion Host" # Remplacer par du texte ASCII
-	vpc_id      = var.vpc_id
+# resource "aws_security_group" "sg_bastion" {
+# 	name        = "SG-Bastion"
+# 	description = "SSH access for Bastion Host" # Remplacer par du texte ASCII
+# 	vpc_id      = var.vpc_id
 
-	ingress {
-		from_port   = 22
-		to_port     = 22
-		protocol    = "tcp"
-		cidr_blocks = [var.my_ip]
-	}
+# 	ingress {
+# 		from_port   = 22
+# 		to_port     = 22
+# 		protocol    = "tcp"
+# 		cidr_blocks = [var.my_ip]
+# 	}
 
-	egress {
-		from_port   = 0
-		to_port     = 0
-		protocol    = "-1"
-		cidr_blocks = ["0.0.0.0/0"]
-	}
-}
+# 	egress {
+# 		from_port   = 0
+# 		to_port     = 0
+# 		protocol    = "-1"
+# 		cidr_blocks = ["0.0.0.0/0"]
+# 	}
+# }
 
 resource "aws_instance" "bastion" {
 	ami           = var.ami_bastion
 	instance_type = "t3.micro"
 	subnet_id     = var.public_subnet_id
 	key_name      = var.bastion_ssh_key
-	vpc_security_group_ids = [aws_security_group.sg_bastion.id]
+	vpc_security_group_ids = [var.sg_bastion_id]
 	tags = {
 		Name = "Bastion-Host"
 	}
 }
 
 # Serveurs Web/App
-resource "aws_security_group" "sg_app" {
-	name        = "SG-App"
-	description = "HTTP and SSH access via Bastion" # Remplacer par du texte ASCII
-	vpc_id      = var.vpc_id
-
-	ingress {
-		from_port   = 80
-		to_port     = 80
-		protocol    = "tcp"
-		cidr_blocks = ["0.0.0.0/0"]
-	}
-	ingress {
-		from_port   = 22
-		to_port     = 22
-		protocol    = "tcp"
-		security_groups = [aws_security_group.sg_bastion.id]
-	}
-	egress {
-		from_port   = 0
-		to_port     = 0
-		protocol    = "-1"
-		cidr_blocks = ["0.0.0.0/0"]
-	}
-}
-
 resource "aws_instance" "webapp" {
 	count         = 2
 	ami           = var.ami_webapp
 	instance_type = "t3.small"
 	subnet_id     = element(var.app_private_subnet_ids, count.index)
 	key_name      = var.bastion_ssh_key
-	vpc_security_group_ids = [aws_security_group.sg_app.id]
+	vpc_security_group_ids = [var.sg_app_id]
 	user_data     = <<-EOF
 		#!/bin/bash
 		yum update -y
