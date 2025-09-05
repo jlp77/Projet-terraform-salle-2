@@ -1,4 +1,14 @@
 # Sous-réseaux publics (Web tier)
+# Création du VPC
+resource "aws_vpc" "ecosop-vpc" {
+  cidr_block           = var.vpc_cidr
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+  tags = {
+    Name = "ecosop-vpc"
+  }
+}
+
 resource "aws_subnet" "web_public_zone_a" {
   vpc_id                  = aws_vpc.ecosop-vpc.id
   cidr_block              = var.web_public_subnet_cidr_1
