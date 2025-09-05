@@ -1,7 +1,7 @@
 # Subnet Group pour la base RDS
 resource "aws_db_subnet_group" "ecoshop_db_subnet_group" {
   name       = "ecoshop-db-subnet-group"
-  subnet_ids = var.db_subnet_ids
+  subnet_ids = var.db_private_subnet_ids
 
   tags = {
     Name = "ecoshop-db-subnet-group"
