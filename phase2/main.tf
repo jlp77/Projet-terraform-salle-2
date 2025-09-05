@@ -10,7 +10,7 @@ data "aws_vpc" "ecosop_vpc" {
 resource "aws_security_group" "sg_web" {
   name        = "SG-Web"
   description = "Security group for Web Load Balancer"
-  vpc_id      = data.aws_vpc.ecosop_vpc.id
+  vpc_id      = var.vpc_id
 
   # Ingress HTTP depuis Internet
   ingress {
@@ -45,7 +45,7 @@ resource "aws_security_group" "sg_web" {
 resource "aws_security_group" "sg_app" {
   name        = "SG-App"
   description = "Security group for Application servers"
-  vpc_id      = data.aws_vpc.ecosop_vpc.id
+  vpc_id      = var.vpc_id
 
   # Ingress port 8080 depuis SG-Web uniquement
   ingress {
@@ -80,7 +80,7 @@ resource "aws_security_group" "sg_app" {
 resource "aws_security_group" "sg_db" {
   name        = "SG-DB"
   description = "Security group for Database"
-  vpc_id      = data.aws_vpc.ecosop_vpc.id
+  vpc_id      = var.vpc_id
 
   # Ingress MySQL (3306) depuis SG-App uniquement
   ingress {
@@ -107,7 +107,7 @@ resource "aws_security_group" "sg_db" {
 resource "aws_security_group" "sg_bastion" {
   name        = "SG-Bastion"
   description = "Security group for Bastion host"
-  vpc_id      = data.aws_vpc.ecosop_vpc.id
+  vpc_id      = var.vpc_id
 
   # Ingress SSH (22) depuis votre IP publique uniquement
   ingress {
