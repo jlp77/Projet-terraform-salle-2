@@ -1,18 +1,3 @@
-# Provider AWS
-provider "aws" {
-  region = var.region
-}
-
-# Création du VPC
-resource "aws_vpc" "ecosop-vpc" {
-  cidr_block           = var.vpc_cidr
-  enable_dns_support   = true
-  enable_dns_hostnames = true
-  tags = {
-    Name = "ecosop-vpc"
-  }
-}
-
 # Sous-réseaux publics (Web tier)
 resource "aws_subnet" "web_public_zone_a" {
   vpc_id                  = aws_vpc.ecosop-vpc.id

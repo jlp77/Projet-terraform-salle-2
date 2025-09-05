@@ -12,6 +12,16 @@ provider "aws" {
   region = var.region
 }
 
+# Création du VPC
+resource "aws_vpc" "ecosop-vpc" {
+  cidr_block           = var.vpc_cidr
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+  tags = {
+    Name = "ecosop-vpc"
+  }
+}
+
 module "phase1" {
   source = "./phase1"
 }

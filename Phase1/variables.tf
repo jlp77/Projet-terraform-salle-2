@@ -1,22 +1,3 @@
-# Région et Zones de Disponibilité
-variable "region" {
-  description = "Région AWS"
-  type        = string
-  default     = "us-east-1"
-}
-
-variable "zone_a" {
-  description = "Première zone de disponibilité"
-  type        = string
-  default     = "us-east-1a"
-}
-
-variable "zone_b" {
-  description = "Deuxième zone de disponibilité"
-  type        = string
-  default     = "us-east-1b"
-}
-
 # Configuration VPC
 variable "vpc_cidr" {
   description = "Bloc CIDR pour le VPC"
