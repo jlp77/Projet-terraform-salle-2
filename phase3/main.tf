@@ -61,7 +61,7 @@ resource "aws_instance" "webapp" {
 	count         = 2
 	ami           = var.ami_webapp
 	instance_type = "t3.small"
-	subnet_id     = element(var.private_subnet_ids, count.index)
+	subnet_id     = element(var.app_private_subnet_ids, count.index)
 	key_name      = var.bastion_ssh_key
 	vpc_security_group_ids = [aws_security_group.sg_app.id]
 	user_data     = <<-EOF

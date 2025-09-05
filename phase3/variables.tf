@@ -38,7 +38,7 @@ variable "ami_webapp" {
     default = "ami-0360c520857e3138f"
 }
 
-variable "private_subnet_ids" {
+variable "app_private_subnet_ids" {
 	description = "Liste des IDs des subnets privés pour les serveurs Web/App"
 	type        = list(string)
 }

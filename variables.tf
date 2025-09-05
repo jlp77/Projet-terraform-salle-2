@@ -30,7 +30,7 @@ variable "vpc_id" {
   
 }
 
-variable "private_subnet_ids" {
+variable "app_private_subnet_ids" {
   description = "Liste des IDs des subnets privés pour les serveurs Web/App"
   type        = list(string)
   
