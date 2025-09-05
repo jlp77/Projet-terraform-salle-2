@@ -33,9 +33,9 @@ module "phase3" {
   vpc_id = aws_vpc.ecosop-vpc.id
   private_subnet_ids = [ aws_subnet.app_private_zone_a.id, aws_subnet.app_private_zone_b.id ]
 }
-module "phase4" {
-  source = "./phase4"
-}
-module "phase5" {
-  source = "./phase5"
-}
+# module "phase4" {
+#   source = "./phase4"
+# }
+# module "phase5" {
+#   source = "./phase5"
+# }

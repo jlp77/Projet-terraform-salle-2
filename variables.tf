@@ -23,3 +23,15 @@ variable "zone_b" {
   type        = string
   default     = "us-east-1b"
 }
+
+variable "vpc_id" {
+  description = "ID du VPC"
+  type        = string
+  
+}
+
+variable "private_subnet_ids" {
+  description = "Liste des IDs des subnets privés pour les serveurs Web/App"
+  type        = list(string)
+  
+}
