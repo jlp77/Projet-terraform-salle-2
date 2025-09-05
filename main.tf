@@ -7,9 +7,9 @@ terraform {
   }
 }
 
-# Provider AWS 
+# Provider AWS
 provider "aws" {
-    region = var.location
+  region = var.region
 }
 
 # Création du VPC
@@ -27,7 +27,7 @@ resource "aws_subnet" "web_public_zone1" {
   vpc_id                  = aws_vpc.ecosop-vpc.id
   cidr_block              = var.web_public_subnet_cidr_1
   map_public_ip_on_launch = true
-  availability_zone       = var.az_public
+  availability_zone       = var.zone_public
   tags = {
     Name = "web_public_subnet_cidr_1"
   }
@@ -38,7 +38,7 @@ resource "aws_subnet" "web_public_zone2" {
   vpc_id                  = aws_vpc.ecosop-vpc.id
   cidr_block              = var.web_public_subnet_cidr_2
   map_public_ip_on_launch = true
-  availability_zone       = var.az_public
+  availability_zone       = var.zone_public
   tags = {
     Name = "web_public_subnet_cidr_2"
   }
@@ -49,7 +49,7 @@ resource "aws_subnet" "app-private-zone1" {
   vpc_id                  = aws_vpc.ecosop-vpc.id
   cidr_block              = var.app_private_subnet_cidr_1
   map_public_ip_on_launch = true
-  availability_zone       = var.az_public
+  availability_zone       = var.zone_private
   tags = {
     Name = "app_public_subnet_cidr_1"
   }
@@ -60,7 +60,7 @@ resource "aws_subnet" "app-private-zone2" {
   vpc_id                  = aws_vpc.ecosop-vpc.id
   cidr_block              = var.app_private_subnet_cidr_2
   map_public_ip_on_launch = true
-  availability_zone       = var.az_public
+  availability_zone       = var.zone_private
   tags = {
     Name = "app_public_subnet_cidr_2"
   }
@@ -71,7 +71,7 @@ resource "aws_subnet" "db-private-zone1" {
   vpc_id                  = aws_vpc.ecosop-vpc.id
   cidr_block              = var.db_private_subnet_cidr_1
   map_public_ip_on_launch = true
-  availability_zone       = var.az_public
+  availability_zone       = var.zone_private
   tags = {
     Name = "db_private_subnet_cidr_1"
   }
@@ -82,7 +82,7 @@ resource "aws_subnet" "db-private-zone2" {
   vpc_id                  = aws_vpc.ecosop-vpc.id
   cidr_block              = var.db_private_subnet_cidr_2
   map_public_ip_on_launch = true
-  availability_zone       = var.az_public
+  availability_zone       = var.zone_private
   tags = {
     Name = "db_private_subnet_cidr_2"
   }
