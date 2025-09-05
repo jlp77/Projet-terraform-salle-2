@@ -1,10 +1,4 @@
-# Région
-variable "region" {
-  description = "Zone AWS"
-  type        = string
-  default     = "us-east-1"
-}
-
+# Zone
 variable "zone_public" {
   description = "Zone publique"
   type        = string
