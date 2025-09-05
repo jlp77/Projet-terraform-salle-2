@@ -1,6 +1,3 @@
-#TZTE
-
-
 # Data source pour récupérer le VPC par tag (créé dans le root ou phase1)
 data "aws_vpc" "ecosop_vpc" {
   filter {
