@@ -23,10 +23,3 @@ variable "zone_b" {
   type        = string
   default     = "us-east-1b"
 }
-
-# Configuration VPC
-variable "vpc_cidr" {
-  description = "Bloc CIDR pour le VPC"
-  type        = string
-  default     = "10.0.0.0/16"
-}
