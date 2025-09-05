@@ -1,5 +1,3 @@
-# variables.tf
-
 # Région et Zones de Disponibilité
 variable "region" {
   description = "Région AWS"
