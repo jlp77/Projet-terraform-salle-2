@@ -3,6 +3,12 @@ variable "my_ip" {
   type        = string
   default     = "0.0.0.0/0"  # Remplacez par votre IP réelle pour la sécurité !
 }
+
+variable "vpc_id" {
+	description = "ID du VPC"
+	type        = string
+}
+
 variable "aws_region" {
   description = "The AWS region to deploy resources into"
   default     = "eu-west-1"
