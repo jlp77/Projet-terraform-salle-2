@@ -5,6 +5,13 @@ variable "region" {
   default     = "us-east-1"
 }
 
+# Configuration VPC
+variable "vpc_cidr" {
+  description = "Bloc CIDR pour le VPC"
+  type        = string
+  default     = "10.0.0.0/16"
+}
+
 variable "zone_public" {
   description = "Zone publique"
   type        = string
